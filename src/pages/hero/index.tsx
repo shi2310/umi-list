@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { connect, HeroModelState, ConnectProps, Dispatch } from 'umi';
+import { connect, HeroModelState, ConnectProps, Dispatch, history } from 'umi';
 import styles from './index.less';
 import { Row, Col, Radio, Card } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio';
@@ -47,7 +47,12 @@ const Hero: FC<PageProps> = (props) => {
           .filter((item) => filterKey === 0 || item.hero_type === filterKey)
           .reverse()
           .map((item) => (
-            <Col key={item.ename} span={3} className={styles.heroitem}>
+            <Col
+              key={item.ename}
+              span={3}
+              className={styles.heroitem}
+              onClick={() => history.push(`/hero/${item.cname}`)}
+            >
               <img
                 src={`https://game.gtimg.cn/images/yxzj/img201606/heroimg/${item.ename}/${item.ename}.jpg`}
               />

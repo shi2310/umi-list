@@ -27,8 +27,8 @@ function BasicLayout(props: any) {
           style={{ lineHeight: '64px' }}
         >
           {menuData.map((menu) => (
-            <Menu.Item key={`/${menu.route}`}>
-              <Link to={menu.route}>{menu.name}</Link>
+            <Menu.Item key={menu.route}>
+              <Link to={`/${menu.route}`}>{menu.name}</Link>
             </Menu.Item>
           ))}
         </Menu>
