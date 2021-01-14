@@ -107,17 +107,6 @@ const UserModel: ModelType = {
     *edit({ payload }, { put, call, select }) {
       const data = yield call(EditUser, { ...payload });
       if (data) {
-        // const { userList } = yield select((state: any) => state.userList);
-        // _.each(userList, (o, i) => {
-        //   if (o.id === data.id) {
-        //     o = data;
-        //     return;
-        //   }
-        // });
-        // yield put({
-        //   type: 'save',
-        //   payload: { userList },
-        // });
         return true;
       } else {
         return false;

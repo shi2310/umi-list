@@ -1,5 +1,6 @@
 import mockjs, { Random } from 'mockjs';
 import _ from 'lodash';
+import herolist from './herolist.json';
 
 const user = {
   id: '@natural',
@@ -36,29 +37,31 @@ export default {
   },
   'PUT /api/user': (req, res) => {
     const { id, name, sex, create_time, status } = req.body;
-    console.log('修改',id,name)
+    console.log('修改', id, name);
     if (id && name) {
-      res.send({id, name, sex, create_time, status});
+      res.send({ id, name, sex, create_time, status });
     } else {
       res.status(400).send('id is missing!');
     }
   },
   'POST /api/user': (req, res) => {
-    const { id,name, sex, create_time, status} = req.body;
-    console.log('添加',id,name)
+    const { id, name, sex, create_time, status } = req.body;
+    console.log('添加', id, name);
     if (name) {
-      res.send({id, name, sex, create_time, status});
+      res.send({ id, name, sex, create_time, status });
     } else {
       res.status(400).send('id is missing!');
     }
   },
   'DELETE /api/user': (req, res) => {
-    const { id} = req.query;
-    console.log('删除',id)
+    const { id } = req.query;
+    console.log('删除', id);
     if (id) {
       res.send(true);
     } else {
       res.status(400).send('id is missing!');
     }
   },
+
+  '/api/herolist.json': herolist,
 };

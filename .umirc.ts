@@ -5,7 +5,7 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  title: 'Umi TodoList',
+  title: 'umi-list',
   hash: true,
   antd: {},
   dva: {
